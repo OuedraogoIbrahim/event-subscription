@@ -23,7 +23,7 @@ return new class extends Migration
 
             // Unicité email par événement — garanti au niveau BDD
             $table->unique(['event_id', 'email']);
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

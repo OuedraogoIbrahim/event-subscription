@@ -4,6 +4,7 @@ services:
 
     build:
       context: .
+
     image: event-registration
 
     ports:
@@ -11,14 +12,11 @@ services:
 
     volumes:
       - .:/var/www/html
-      - ./database/database.sqlite:/var/www/html/database/database.sqlite
-
-    env_file:
-      - .env
 
     command: >
       sh -c "
         [ ! -f .env ] && cp .env.example .env || true &&
+        [ ! -f database/database.sqlite ] && touch database/database.sqlite || true &&
         php artisan key:generate --force &&
         php artisan migrate --force &&
         php artisan db:seed --force &&

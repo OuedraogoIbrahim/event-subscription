@@ -10,3 +10,7 @@ Route::get('/user', function (Request $request) {
 Route::get('events', function () {
     return \App\Models\Event::withCount('registrations')->get();
 });
+
+
+require __DIR__ . '/events.php';
+require __DIR__ . '/registrations.php';
