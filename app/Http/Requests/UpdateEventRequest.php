@@ -24,11 +24,11 @@ class UpdateEventRequest extends FormRequest
     {
         return [
             //
-            'title'       => 'required|string|max:100',
+            'title'       => 'sometimes|required|string|max:100',
             'description' => 'nullable|string',
-            'date'        => ['required', 'string', 'regex:/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/'],
-            'location'    => 'required|string',
-            'capacity'    => 'required|integer|min:1',
+            'date'        => ['sometimes', 'required', 'string', 'regex:/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/'],
+            'location'    => 'sometimes|required|string',
+            'capacity'    => 'sometimes|required|integer|min:1',
         ];
     }
 }
