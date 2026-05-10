@@ -20,11 +20,11 @@ class EventController extends Controller
 
     /**
      * GET /api/events
-     * Supporte ?search= et ?date= et ?page=
+     * Supporte ?search=  ?date= et ?limit=
      */
     public function index(Request $request): JsonResponse
     {
-        $events = $this->eventService->list($request->only(['search', 'date']));
+        $events = $this->eventService->list($request->only(['search', 'date', 'limit']));
 
         return response()->json([
             'success' => true,

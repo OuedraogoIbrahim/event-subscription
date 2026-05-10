@@ -27,7 +27,8 @@ class EventService
                 $query->where('date', 'like', $filters['date'] . '%');
             });
 
-        return $query->orderBy('date')->paginate(10);
+        $limit = $filters['limit'] ?? 10;
+        return $query->orderBy('date')->paginate($limit);
     }
 
     /**
