@@ -50,7 +50,7 @@ class EventController extends Controller
      */
     public function show(Event $event): JsonResponse
     {
-        $event->loadCount('registrations');
+        $event = $this->eventService->find($event);
 
         return response()->json([
             'success' => true,

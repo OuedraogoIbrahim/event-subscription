@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class RegistrationService
 {
+
+    /**
+     * Liste les inscriptions d'un événement.
+     */
+
+    public function list(Event $event)
+    {
+        return $event->registrations()->get();
+    }
     /**
      * Inscrit un participant avec vérification atomique.
      *

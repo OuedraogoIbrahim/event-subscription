@@ -42,7 +42,7 @@ class RegistrationController extends Controller
      */
     public function index(Event $event): JsonResponse
     {
-        $registrations = $event->registrations;
+        $registrations = $this->registrationService->list($event);
 
         return response()->json([
             'success' => true,

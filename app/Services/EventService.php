@@ -40,6 +40,15 @@ class EventService
     }
 
     /**
+     * Récupère un événement avec le nombre d'inscriptions.
+     */
+
+    public function find(Event $event): Event
+    {
+        return $event->loadCount('registrations');
+    }
+
+    /**
      * Met à jour un événement.
      */
     public function update(Event $event, array $data): Event
