@@ -37,7 +37,7 @@ L'API est disponible sur **http://localhost:8000/api**
 Le projet doit être démarré avant de lancer les tests.
 
 ```bash
-docker compose exec backend-event-registration ./vendor/bin/pest
+docker compose exec event-management ./vendor/bin/pest
 ```
 
 ---
