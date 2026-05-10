@@ -1,13 +1,21 @@
 services:
-  api:
-    build: .
+  event-management:
+    container_name: backend-event-registration
+
+    build:
+      context: .
+    image: event-registration
+
     ports:
       - "8000:8000"
+
     volumes:
       - .:/var/www/html
       - ./database/database.sqlite:/var/www/html/database/database.sqlite
+
     env_file:
       - .env
+
     command: >
       sh -c "
         [ ! -f .env ] && cp .env.example .env || true &&
